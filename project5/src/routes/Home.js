@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Movie from "./component/Movie";
+import Movie from "../component/Movie";
 
 // Home Component
 function Home() {
@@ -25,10 +25,13 @@ function Home() {
         <div>
           {movies.map((movie) => (
             <Movie
+              movies={movies}
+              loading={loading}
               medium_cover_image={movie.medium_cover_image}
               title={movie.title}
               summary={movie.summary}
               genres={movie.genres}
+              id={movie.id}
             />
           ))}
         </div>
