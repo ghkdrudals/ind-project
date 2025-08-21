@@ -1,22 +1,34 @@
-import './App.css';
-
+import "./App.css";
+import { useState } from "react";
+const useInput = (initialValue,validator) => {
+  const [value, setValue] = useState(initialValue);
+  const onChange = (event) => {
+    const {
+      target:{value}
+    }=event;
+    let willupdate=true
+    if (typeof validator==="function"){
+      willupdate = validator(value)
+    }
+    if (willupdate){
+      setValue(value)
+    }
+    setValue(value)
+  };
+  return { value };
+};
 function App() {
+  const maxlength = (value) => !value.includes("@")
+  const name = useInput("Mr.",maxlength);
+  const [count, setCount] = useState(0);
+  const plus = () => setCount(count + 1);
+  const minus = () => setCount(count - 1);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{count}</h1>
+      <button onClick={plus}>up</button>
+      <button onClick={minus}>down</button>
+      <input {...name}></input>
     </div>
   );
 }
