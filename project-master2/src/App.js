@@ -3,17 +3,29 @@ import styled, { keyframes } from "styled-components";
 const Wrapper = styled.div`
 display:flex;
 `
+const animation = keyframes`
+0%{
+transform: rotate(0deg);
+border-radius:0;
+}
+50%{
+transform: rotate(360deg);
+border-radius:50%;
+}
+100%{
+}
+`;
+
 const Box = styled.div`
 height:200px;
 width:200px;
-`
-
-const animation = keyframes`
-
+background-color:tomato;
+animation:${animation} 1s linear infinite;
 `
 function App() {
   return (
     <Wrapper>
+      <Box />
     </Wrapper>
   );
 }
