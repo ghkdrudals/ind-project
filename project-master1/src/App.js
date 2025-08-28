@@ -1,11 +1,23 @@
 import styled from "styled-components";
 
+const Father = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const Input = styled.input.attrs({required: true})`
+background-color: tomato;
+`
+
+
 function App() {
   return (
-    <div style={{display:"flex"}}>
-      <div style={{backgroundColor:"teal",width:100,height:100}}></div>
-      <div style={{backgroundColor:"teal",width:100,height:100}}></div>
-    </div>
+    <Father>
+      <Input></Input>
+      <Input></Input>
+      <Input></Input>
+      <Input></Input>
+    </Father>
   );
 }
 
