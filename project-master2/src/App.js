@@ -13,6 +13,8 @@ transform: rotate(360deg);
 border-radius:50%;
 }
 100%{
+transform: rotate(0deg);
+border-radius:0;
 }
 `;
 
@@ -20,12 +22,30 @@ const Box = styled.div`
 height:200px;
 width:200px;
 background-color:tomato;
-animation:${animation} 1s linear infinite;
+display:flex;
+justify-content:center;
+align-items:center;
+animation:${animation} 2s linear infinite;
+span{
+font-size:36px;
+width:50px;
+height:50px;
+border:0;
+border-radius:25px;
+display:flex;
+justify-content:center;
+align-items:center;
+&:hover{
+background-Color:white;}
+
+}
 `
 function App() {
   return (
     <Wrapper>
-      <Box />
+      <Box>
+        <span>😀</span>
+      </Box>
     </Wrapper>
   );
 }
