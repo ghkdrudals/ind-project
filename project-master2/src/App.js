@@ -39,6 +39,9 @@ align-items:center;
 background-Color:white;}
 
 }
+&:active{
+opacity:0;
+}
 `
 function App() {
   return (
