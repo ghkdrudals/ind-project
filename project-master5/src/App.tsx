@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { useState } from "react";
 import React from "react";
 
+const Container = styled.div`
+ background-color: ${(props) => props.theme.bgClor};
+`
 function App() {
   const[value, setValue] = useState("");
   const onChange = (event:React.FormEvent<HTMLInputElement>) => {
