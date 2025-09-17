@@ -4,6 +4,7 @@ import App from "./App.tsx";
 import Home from "./components/Home.tsx";
 import About from "./components/About.tsx";
 import User from "./screens/users/User.tsx";
+import NotFound from "./screens/NotFound.tsx";
 
 const router = createBrowserRouter([
     {
