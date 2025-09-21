@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 const Continer=styled.div`
@@ -26,6 +26,17 @@ const Coin=styled.li`
     }
     }
 `
+
+interface CoinInterface{
+
+    id:"string",
+    name:"string",
+    symbol:"string",
+    rank:number,
+    is_new:boolean,
+    is_active:boolean,
+    type:"string"
+}
 
 const Title = styled.h1`
     font-size:48px;
@@ -62,7 +73,10 @@ const coins = [
     }
 ]
 function Coins(){
-    return <Continer>
+    const [coins,setCoins]=useState<CoinInterface[]>([])
+    useEffect
+    return(
+         <Continer>
         <Header>
             <Title>Coins</Title>
         </Header>
@@ -72,6 +86,7 @@ function Coins(){
             </Coin>)}
         </CoinsList>
     </Continer>
+    )
 }
 
 export default Coins;

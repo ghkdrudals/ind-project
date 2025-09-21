@@ -64,6 +64,8 @@ table {
   a{
   text-decoration:none;
   color:inherit;
+  transition:color 0.2s ease-in;
+  display:block;
   }
   *{
   box-sizing:border-box;
