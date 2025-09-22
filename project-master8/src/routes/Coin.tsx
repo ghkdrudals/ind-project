@@ -29,7 +29,7 @@ const Continer=styled.div`
 function Coin(){
     const[loading,setLoading]=useState(true);
     const {coinId} = useParams<RouterParams>();
-    const location=useLocation();
+    const {state}=useLocation<{}}>();
     return <Continer>
     <Header>
         <Title>Coins{coinId}</Title>
