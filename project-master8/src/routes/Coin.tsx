@@ -40,9 +40,10 @@ function Coin(){
     const {state}=useLocation();
     useEffect(()=>{
         (async () =>{
-            const response = await (await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)).json();
-            const json = await response.json();
-            setCoins(json.slice(0,100));
+            const response:CoinIterface[] = await (await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)).json();
+            const pricedata = await (await fetch(`https://api.coinpaprika.com/v1/tickers/${coinId}`)).json();
+            console.log(pricedata)
+            setCoins(response.slice(0,100));
             setLoading(false);
 
 
