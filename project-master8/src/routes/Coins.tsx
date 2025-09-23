@@ -104,10 +104,8 @@ function Coins(){
         </Header>
         {loading ? (<Loader>loading...</Loader>):<CoinsList>
             {coins.map(coin => <Coin key={coin.id}>
-                <Link to={{
-                    pathname:`/${coin.id}`,
-                    state:{name:coin.name},
-                }}>
+                <Link to={`/${coin.id}`} state={{ name: coin.name }}>
+
                 <Img src={`https://cryptoicon-api.vercel.app/api/icon/btc/${coin.symbol.toLowerCase()}`}></Img>
                 {coin.name} &rarr;</Link>
             </Coin>)}

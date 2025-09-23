@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useParams,useLocation } from "react-router-dom";
 import styled from "styled-components";
 
@@ -26,13 +26,32 @@ const Continer=styled.div`
     padding:0px 10px;
     `
 
+interface CoinIterface{
+    id:string;
+    name:string;
+    symbol:string;
+    rank:number;
+    is_new:boolean;}
+
 function Coin(){
-    const[loading,setLoading]=useState(true);
+    const [coins,setCoins]=useState<CoinIterface[]>([])
+    const [loading, setLoading] = useState<boolean>(true);
     const {coinId} = useParams<RouterParams>();
-    const {state}=useLocation<{}}>();
+    const {state}=useLocation();
+    useEffect(()=>{
+        (async () =>{
+            const response = await (await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)).json();
+            const json = await response.json();
+            setCoins(json.slice(0,100));
+            setLoading(false);
+
+
+        })();
+    },[])
+    console.log(state?.name || "Loading...");
     return <Continer>
     <Header>
-        <Title>Coins{coinId}</Title>
+        <Title>{state.name}</Title>
     </Header>
     {loading ? (<Loader>loading...</Loader>
     ):null}
